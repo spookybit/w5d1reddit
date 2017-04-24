@@ -1,0 +1,15 @@
+<h1>Sub Pub</h1>
+<% if current_user %>
+  <%= button_to "New Sub", new_sub_url, method: :get%>
+<% end %>
+
+
+<ul>
+
+<% @subs.sort.each do |sub| %>
+  <%= link_to sub.title, sub_url(sub.id) %><br>
+  By : <%= sub.moderator.username %><br>
+  <%= sub.description %><br><br>
+<% end %>
+
+</ul>

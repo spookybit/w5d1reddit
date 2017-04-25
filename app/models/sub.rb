@@ -14,6 +14,8 @@ class Sub < ApplicationRecord
   validates :title, :description, :moderator_id, presence: true
   validates :title, uniqueness: true
 
+  has_many :post_subs, dependent: :destroy, inverse_of: :sub
+  has_many :posts, through: :post_subs, source: :post
   belongs_to :moderator,
     class_name: :User,
     primary_key: :id,

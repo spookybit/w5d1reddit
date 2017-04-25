@@ -14,6 +14,14 @@
   <label for="Content">Content</label><br>
   <textarea id="Content" name="post[content]" rows="8" cols="80"></textarea>
 
+  <label>Subs</label>
+  <input type="hidden" name="post[sub_ids][]" value="">
+  <% Sub.all.each do |sub| %>
+    <label><%= sub.title %></label>
+    <input type="checkbox" name="post[sub_ids][]" value="<%= sub.id %>">
+  <% end %>
+
+
   <br>
   <input type="submit" name="" value="Snide Remarks Send">
 

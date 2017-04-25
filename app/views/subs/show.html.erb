@@ -10,4 +10,13 @@
 
 <br><br>
 
+<% @sub.posts.each do |post| %>
+  <%= post.user.username %> posted
+  <%= post.content %><br>
+  <% if post.user.id == current_user.id %>
+    <%= button_to "Hide in shame", posts_url(post), method: :delete %>
+  <% end %>
+<% end %>
+<br>
+
 <%= link_to "Back to Index", subs_url %>
